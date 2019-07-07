@@ -1,0 +1,17 @@
+{
+  "name": "Modern JavaScript(ES6)",
+  "version": "1.0.0",
+  "description": "Modern JavaScript Practice Files",
+  "main": "ajax.js",
+  "scripts": {
+    
+  },
+  "author": "Shaon Kabir",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.19.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modern JavaScript | Practice Files</title>
+</head>
+<style>
+    img{width:600px;height: 540px;}
+    button {background: green;color: white;padding: 17px;font-size: 17px;display: block; cursor: pointer;}
+    .running{display:none}
+    .projects{overflow: hidden;}
+    .rowOne{float: left;}
+    .rowTwo{float: left;background: #b7b7b7;padding:27px;}
+    .coder-working{display: none}
+    button{margin:15px 0}
+    .audio-play-section{display:block;padding:100px;; text-align: center;}
+</style>
+<body>
+    <!-- Simple DOM Manipulation and Projects -->
+    <div class="projects">
+        <!-- MAN RUNNING ANIMATION -->
+        <div class="rowOne">
+            <h1>Let's have some fun Buddy !!</h1>
+            <button>Click to see Magic</button>
+            <img src="assets/img/before_running.png" class="beforeRunning">
+            <img src="assets/img/running.gif" class="running">
+        </div>
+        <!-- PROGRAMMERS LIFE ANIMATION -->
+        <div class="rowTwo">
+            <h1>Life of a Programmer !!</h1>
+            <button class="second-btn">Just Click here</button>
+            <img src="assets/img/coder_sleep.png" class="coder-sleep">
+            <img src="assets/img/coder_life.gif"  class="coder-working">
+        </div>
+    </div>
+
+    <!-- AUDIO PLAY -->
+    <div class="audio-play-section">
+        <button>click to play audio</button>
+        <audio src="assets/songs/songs.mp3"></audio>
+    </div>
+
+
+
+
+    <script>
+        // RUNNING MAN ANIMATION
+        const imgOne = document.querySelector('.beforeRunning');
+        const imgTwo = document.querySelector('.running')
+        const btn = document.querySelector('button')
+        btn.addEventListener('click' ,(e) => {
+            imgTwo.style.display = 'block'
+            imgOne.style.display = 'none'
+            btn.innerHTML = "Click to Stop Running";
+            // changing h1 text:
+            const h1 = document.querySelector('h1');
+            h1.innerHTML = "Amazing ! Right ? Enjoy the coolest thing"
+            // for closing animation
+            btn.onclick = function() {
+                btn.innerHTML = "Thank You!!"
+                // Change Status
+                imgTwo.style.display = 'none'
+                imgOne.style.display = 'block'
+            }
+        })
+
+        // PROGRAMMERS LIFE ANIMATION
+        const coderSleep = document.querySelector('.coder-sleep')
+        const coderLife = document.querySelector('.coder-working')
+        const secondBtn = document.querySelector('.second-btn')
+        // MAIN EVENT LISTENER FOR PROGRAMMER
+        secondBtn.addEventListener('click', (e) => {
+            coderLife.style.display = 'block';
+            coderSleep.style.display = 'none';
+            secondBtn.innerHTML = "Let him sleep please..."
+
+            const heading = document.querySelector('.rowTwo h1');
+            heading.innerHTML = "Amazing ? May be No ! It's Annoying"
+
+            // Changing Status:
+            secondBtn.addEventListener('click' , (e) => {
+                coderLife.style.display = 'none';
+                coderSleep.style.display = 'block';
+
+            })
+        })
+
+
+        // AUDIO PLAY :
+        const audio = document.querySelector('audio')
+        const audioPlayBtn = document.querySelector('.audio-play-section button')
+        audioPlayBtn.addEventListener('click' , (e) => {
+            audio.play()
+            audioPlayBtn.innerHTML = "Click to stop playing";
+
+            audioPlayBtn.addEventListener('click' , (e) => {
+                // stop method should be activated here
+                audio.pause()
+
+                audioPlayBtn.innerHTML = "Thank you for playing Audio"
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>
